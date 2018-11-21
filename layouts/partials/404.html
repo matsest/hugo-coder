@@ -1,7 +1,8 @@
 <section class="container centered">
   <div class="error">
+    <img src="images/obiwan404.jpg" Alt="404">
     <h1>404</h1>
-    <h2>{{ i18n "page_not_found" }}</h2>
-    <p>{{ i18n "page_does_not_exist" }}<br />{{ i18n "head_back" .Site.BaseURL | safeHTML }}</p>
+    <h2>This is not the page you're looking for</h2>
+    <p><a href="{{ .Site.BaseURL | absLangURL }}">Back to main page</a></p>
   </div>
 </section>

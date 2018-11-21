@@ -27,5 +27,20 @@
       {{ end }}
     </ul>
     {{ end }}
+    
+    <section class="container list">
+    <h5> Most recent post: </h5>
+    <ul>
+    {{ $posts := ($.Site.GetPage "section" "posts").Pages.ByPublishDate.Reverse }}
+    {{ range first 1 $posts }}
+      <li>
+      <span>{{ .Date.Format (.Site.Params.dateFormat) }} </span>
+      <a href="{{ .URL }}"> {{ .Title }} </a>
+      </li>
+    {{ end }}
+    </ul>
+    </section>
+
   </div>
+
 </section>

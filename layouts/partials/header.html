@@ -1,8 +1,7 @@
 <nav class="navigation">
   <section class="container">
-    {{ with .Site }}
-    <a class="navigation-title" href="{{ absLangURL "" }}">
-      {{ .Title }}
+   <a class="navigation-title" href="{{ .Site.BaseURL | absLangURL }}">
+      {{ .Site.Params.TitleHeader }}
     </a>
     {{ end }}
     {{ if or .Site.Menus.main hugo.IsMultilingual }}
@@ -18,7 +17,16 @@
             </li>
           {{ end }}
         {{ end }}
-        {{ if hugo.IsMultilingual }}
+        {{ if .Site.Params.rssinmenu }}
+          {{ with .Site.Params.rss}}
+            {{ range sort . }}
+            <li class="navigation-item">
+                <a class ="navigation-link" href="{{ .url }}" ><i class="{{ .icon }}"></i></a>
+            </li>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+        {{ if .Site.IsMultiLingual }}
           {{ $node := . }}
           {{ .Scratch.Set "separator" true }}
           {{ range (default .Site.Home.AllTranslations .Translations) }}

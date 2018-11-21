@@ -1,7 +1,7 @@
 <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="{{ .Site.BaseURL | relLangURL }}">
-      {{ .Site.Title }}
+   <a class="navigation-title" href="{{ .Site.BaseURL | absLangURL }}">
+      {{ .Site.Params.TitleHeader }}
     </a>
     {{ if or .Site.Menus.main .Site.IsMultiLingual }}
       <input type="checkbox" id="menu-toggle" />
@@ -14,6 +14,15 @@
             <li class="navigation-item">
               <a class="navigation-link" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
             </li>
+          {{ end }}
+        {{ end }}
+        {{ if .Site.Params.rssinmenu }}
+          {{ with .Site.Params.rss}}
+            {{ range sort . }}
+            <li class="navigation-item">
+                <a class ="navigation-link" href="{{ .url }}" ><i class="{{ .icon }}"></i></a>
+            </li>
+            {{ end }}
           {{ end }}
         {{ end }}
         {{ if .Site.IsMultiLingual }}

@@ -11,7 +11,7 @@ appear in after the "about" section.
     {{ range first 1 $posts }}
       <li>
       <span>{{ .Date.Format (.Site.Params.dateFormat) }} </span>
-      <a href="{{ .URL }}"> {{ .Title }} </a>
+      <a href="{{ .Permalink }}"> {{ .Title }} </a>
       </li>
     {{ end }}
     </ul>

@@ -1,6 +1,6 @@
 {{ if not .Site.Params.hideFooter | default false }}
   <footer class="footer">
-    <section class="container">
+    <div class="container">
       {{ with .Site.Params.footerContent | safeHTML }}
         <p>{{ . }}</p>
       {{ end }}
@@ -21,6 +21,6 @@
           [<a href="{{ .Site.Params.commit }}/{{ .GitInfo.Hash }}">{{ .GitInfo.AbbreviatedHash }}</a>]
         {{ end }}
       {{ end }}
-    </section>
+    </div>
   </footer>
 {{ end }}

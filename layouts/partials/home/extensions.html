@@ -3,8 +3,7 @@ You can add further theme extensions or customizations here if they should
 appear in after the "about" section.
 */}}
 
-<div class="about">
-    <section class="container list">
+<section class="container list">
     <h5> Most recent post: </h5>
     <ul>
     {{ $posts := ($.Site.GetPage "section" "posts").Pages.ByPublishDate.Reverse }}
@@ -15,5 +14,4 @@ appear in after the "about" section.
       </li>
     {{ end }}
     </ul>
-    </section>
-</div>
+</section>

@@ -1,7 +1,8 @@
 <nav class="navigation">
   <div class="container">
-   <a class="navigation-title" href="{{ .Site.BaseURL | absLangURL }}">
-      {{ .Site.Params.TitleHeader }}
+      {{ with .Site }}
+   <a class="navigation-title" href="{{ absLangURL "" }}">
+      {{ .Params.TitleHeader }}
     </a>
     {{ end }}
     {{ if or .Site.Menus.main hugo.IsMultilingual }}

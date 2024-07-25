@@ -2,16 +2,3 @@
 You can add further theme extensions or customizations here if they should
 appear in after the "about" section.
 */}}
-
-<section class="container list">
-    <h5> Most recent post: </h5>
-    <ul>
-    {{ $posts := ($.Site.GetPage "section" "posts").Pages.ByPublishDate.Reverse }}
-    {{ range first 1 $posts }}
-      <li>
-      <span>{{ .Date.Format (.Site.Params.dateFormat) }} </span>
-      <a href="{{ .Permalink }}"> {{ .Title }} </a>
-      </li>
-    {{ end }}
-    </ul>
-</section>
